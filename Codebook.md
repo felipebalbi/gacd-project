@@ -9,8 +9,8 @@ each subject (1 record for each of the 6 activities).
 
 Field Label | Variable | Variable Type | Allowable Values | Comments
 :-----------|:---------|:--------------|:-----------------|:---------
-id  |Subject Identifier | numeric | 1 through 30 |
-activity  |Activity Name | Character / Factor | standing, sitting, laying, walking, walking\_downstairs, walking\_upstairs |
+id  | Subject Identifier | numeric | 1 through 30
+activity  | Activity Name | Character / Factor | standing, sitting, laying, walking, walking\_downstairs, walking\_upstairs
 t.body.acc.mean.x  | Time Domain Body Acceleration Mean On X Axis | numeric | any
 t.body.acc.mean.y  | Time Domain Body Acceleration Mean On Y Axis | numeric | any
 t.body.acc.mean.z  | Time Domain Body Acceleration Mean On Z Axis | numeric | any
