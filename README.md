@@ -1,5 +1,5 @@
-# Getting and Cleaning Data Course Project - Data Science Specialization - Coursera
-## Peer assessment project
+# Getting and Cleaning Data - Data Science Specialization - Coursera
+## Course Project
 ### Author: Felipe Balbi
 ### Email: balbif@gmail.com
 =====================================================================
@@ -96,7 +96,7 @@ arguments.
 
 After starting R, you should see the following screen:
 
-```
+```R
 R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet"
 Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
