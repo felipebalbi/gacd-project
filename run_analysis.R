@@ -128,6 +128,7 @@ read.data.training <- function()
 			  "train/", sep = "/")
 	x_filename <- paste(basedir, "X_train.txt", sep = "/")
 	y_filename <- paste(basedir, "y_train.txt", sep = "/")
+	subject_filename <- paste(basedir, "subject_train.txt", sep = "/")
 
 	# Because of an issue with data.table (at least up until 1.9.5) where
 	# it crashes with a buffer overflow due to any leading spaces before
@@ -148,6 +149,9 @@ read.data.training <- function()
 	activity <- fread(y_filename, header = FALSE, stringsAsFactors = FALSE)
 	setnames(activity, "activity")
 
-	training <- data.table(activity, x)
+	subject <- fread(subject_filename, header = FALSE, stringsAsFactors = FALSE)
+	setnames(subject, "subject")
+
+	training <- data.table(subject, activity, x)
 	training
 }
