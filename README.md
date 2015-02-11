@@ -21,24 +21,32 @@ For the sake of completeness, we have decided to use all columns containing
 
 This repository contains an
 [R](http://en.wikipedia.org/wiki/R_%28programming_language%29) script which
-will download and clean source data and also generate a *Tidy Dataset* for
-further consumption later on. Together with it, we're also providing a
+will download and clean source data and also generate a [Tidy
+Dataset](https://github.com/felipebalbi/gacd-project/blob/wip/data/uci_har_dataset_tidy.csv)
+for further consumption later on. Together with it, we're also providing a
 README.md file (this exact file which you're reading now) describing the
 project as a whole, and a Codebook.md file which describes the variables within
-our *Tidy Dataset*.
+our [Tidy
+Dataset](https://github.com/felipebalbi/gacd-project/blob/wip/data/uci_har_dataset_tidy.csv).
 
 There are a total of 4 (four) files within this repository, which we describe
 below:
 
 * README.md: This very file, describing the project as a whole;
 * run\_analysis.R: An R script containing code to download, extract, clean,
-  merge, select and generate a *Tidy Dataset* in [Comma Separated Value
+  merge, select and generate a [Tidy
+Dataset](https://github.com/felipebalbi/gacd-project/blob/wip/data/uci_har_dataset_tidy.csv)
+in [Comma Separated Value
 (CSV)](http://en.wikipedia.org/wiki/Comma-separated_values) file located at
-  file;
-* Codebook.md: Serving as *metadata* for our *Tidy Dataset*, Codebook.md
+file;
+* Codebook.md: Serving as *metadata* for our [Tidy
+  Dataset](https://github.com/felipebalbi/gacd-project/blob/wip/data/uci_har_dataset_tidy.csv),
+Codebook.md
   describes all variables contained within our dataset so it becomes easier for
   anybody processing our data further down the line.
-* dataset\_tidy.csv: This is our *Tidy Dataset* as mentioned multiple times
+* dataset\_tidy.csv: This is our [Tidy
+  Dataset](https://github.com/felipebalbi/gacd-project/blob/wip/data/uci_har_dataset_tidy.csv)
+as mentioned multiple times
   above. Here you can find all cleaned up data which our script was able to
   generate.
 
@@ -186,7 +194,9 @@ and you have a new *dataset\_tidy.csv* file recreated.
 
 # Output Tidy Dataset description
 
-The resulting *Tidy Dataset*, a [Comma Separated Value
+The resulting [Tidy
+Dataset](https://github.com/felipebalbi/gacd-project/blob/wip/data/uci_har_dataset_tidy.csv),
+a [Comma Separated Value
 (CSV)](http://en.wikipedia.org/wiki/Comma-separated_values) file located at
 data/uci\_har\_dataset\_tidy.csv, contains a total of 181 lines (1 header line
 followed by 6 rows of observations for each of the 30 subjects).
@@ -214,9 +224,11 @@ activity for each subject). A quick summary of the contents follows:
 
 # Codebook.md
 
-The metadata for our *Tidy Dataset* is located in Codebook.md. That file
-describes all variables available in our generated output data file and what
-type of value to expected for each column of the table.
+The metadata for our [Tidy
+Dataset](https://github.com/felipebalbi/gacd-project/blob/wip/data/uci_har_dataset_tidy.csv)
+is located in Codebook.md. That file describes all variables available in our
+generated output data file and what type of value to expected for each column
+of the table.
 
 # R Package dependencies
 
