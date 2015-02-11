@@ -26,7 +26,7 @@ destination.directory = "data"
 destination.file = "dataset.zip"
 
 ## name of destination tidy dataset
-destination.tidy = "dataset_tidy.csv"
+destination.tidy = "uci_har_dataset_tidy.csv"
 
 ## name of directory after modifying
 destination.source = "uci_har_dataset"
@@ -245,8 +245,9 @@ run.analysis <- function()
 
 	cat("Processing...\tWriting tidy data\n")
 
-	write.table(result.dt, file = destination.tidy, sep = ",",
-		    row.names = FALSE)
+	output <- paste(destination.directory, destination.tidy, sep = "/")
+
+	write.table(result.dt, file = output, sep = ",", row.names = FALSE)
 
 	cat("Processing done\n")
 }
