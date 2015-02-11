@@ -201,3 +201,58 @@ read.data.test <- function()
 
 	data
 }
+
+##
+# run.analysis - top level function tying everything together
+##
+run.analysis <- function()
+{
+	# First download data
+	download.extract()
+
+	# Read features
+	features <- read.features()
+
+	# Read activity labels
+	activity.labels <- read.activity.labels()
+
+	# Read training data
+	training <- read.data.training()
+
+	# Read test data
+	test <- read.data.test()
+
+	# Here's the tricky part. We need to first row-bind training and test
+	# so we're left with a single data.table
+	internal.dt <- rbind(training, test)
+
+	# Now we need to set column names properly. Column names are the first
+	# two column names from internal.dt concatenated with features$feature.
+	#
+	# first we grab first two names from internal.dt and concatenate to the
+	# 'feature' column from 'internal.dt' and pass all that to setnames().
+	setnames(internal.dt, c("subject", "activity", features$feature))
+
+	# Replace activity IDs with actual strings
+	internal.dt$activity <- activity.labels[internal.dt$activity,]$activity
+
+	# Select only mean and std columns, together with subject and activity
+	tmp.dt <- select(internal.dt, matches("(mean|std)"))
+
+	cat("Processing...\tAggregating data\n")
+	result.dt <- aggregate(tmp.dt, by = list(id = internal.dt$subject,
+						 activity = internal.dt$activity),
+			       FUN = "mean")
+
+	cat("Processing...\tSorting data\n")
+	result.dt <- arrange(result.dt, id)
+
+	cat("Processing...\tWriting tidy data\n")
+
+	write.table(result.dt, file = destination.tidy, sep = ",",
+		    row.names = FALSE)
+
+	cat("Processing done\n")
+}
+
+run.analysis()
