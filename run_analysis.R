@@ -12,6 +12,7 @@
 ##			LIBRARY DEPENDENCY			##
 ##################################################################
 library(dplyr)
+library(data.table)
 
 ##################################################################
 ##			GLOBAL CONSTANTS			##
@@ -86,8 +87,8 @@ read.features <- function()
 {
 	filename <- paste(destination.directory, destination.source,
 			  "features.txt", sep = "/")
-	features <- read.table(filename, sep = " ", header = FALSE)
-	names(features) <- c("id", "feature")
+	features <- fread(filename, sep = " ", header = FALSE)
+	setnames(features, c("id", "feature"))
 
 	features <- mutate(features, feature = tolower(feature))
 	features <- mutate(features, feature = sub("^(t|f)", "\\1\\.", feature))
@@ -112,8 +113,8 @@ read.activity.labels <- function()
 {
 	filename <- paste(destination.directory, destination.source,
 		       "activity_labels.txt", sep = "/")
-	activities <- read.table(filename, sep = " ",
-				 col.names = c("id", "activity"))
+	activities <- fread(filename, sep = " ")
+	setnames(activities, c("id", "activity"))
 	activities <- mutate(activities, activity = tolower(activity))
 	activities
 }
