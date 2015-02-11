@@ -6,16 +6,6 @@
 ## Author: Felipe Balbi <balbif@gmail.com>
 ##
 
-##################################################################
-##			LIBRARY DEPENDENCY			##
-##################################################################
-library(dplyr)
-library(data.table)
-
-##################################################################
-##			GLOBAL CONSTANTS			##
-##################################################################
-
 ## URL with source .zip file
 url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
@@ -252,4 +242,38 @@ run.analysis <- function()
 	cat("Processing done\n")
 }
 
+# empty character vector for packages names which might need to be installed
+packages = character(0)
+packages.needed = FALSE
+
+# check if dplyr needs to be installed
+if (!("dplyr" %in% installed.packages())) {
+	packages.needed <- TRUE
+
+	reply <- readline("Do you want me to install package 'dplyr'? ")
+	if (grepl("^[Yy](es)?", reply))
+		packages <- c(packages, 'dplyr')
+}
+
+# check if data.table needs to be installed
+if (!("data.table" %in% installed.packages())) {
+	packages.needed <- TRUE
+
+	reply <- readline("Do you want me to install package 'data.table'? ")
+	if (grepl("^[Yy](es)?", reply))
+		packages <- c(packages, 'dplyr')
+}
+
+# conditionally install packages
+if (length(packages) > 0) {
+	install.packages(packages, repo = "http://cran.rstudio.com/")
+} else if (length(packages) == 0 & packages.needed) {
+	stop("Can't run without 'dplyr' and 'data.table'")
+}
+
+# load dependencies
+library(dplyr)
+library(data.table)
+
+# finally, run our analysis
 run.analysis()

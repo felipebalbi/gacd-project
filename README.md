@@ -214,8 +214,11 @@ larger data.
 *dplyr* is used for its capabilities of selecting, arranging, filtering data in
 a much more natural manner.
 
-If you don't have those two packages installed, *run\_analysis.R* will not be
-able to run. Make sure they are installed with the following command:
+If you don't have those two packages installed, *run\_analysis.R* will try to
+install them for you, but it will confirm with you first. If packages are
+needed but you tell the script you don't want it to install packages for you,
+execution will stop with an error message. At which point, we expect the user
+to install packages manuall using the command below and trying again.
 
 ```R
 > install.packages(c("dplyr", "data.table"))
