@@ -211,7 +211,7 @@ able to run. Make sure they are installed with the following command:
 > install.packages(c("dplyr", "data.table"))
 ```
 
-## Performance
+## Running Time
 
 We can use *system.time()* for a rough estimation of the execution time for our
 *run\_analysis.R* script. The system used was a Lenovo Desktop with a quad-core
