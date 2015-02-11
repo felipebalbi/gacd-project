@@ -4,6 +4,19 @@
 ### Email: balbif@gmail.com
 =====================================================================
 
+# Data Selection
+
+After properly loading all files into R, we have used dplyr's *select()*
+combined with *matches()* to pick all columns which contained 'mean' or 'std'
+in their names. We have decided to select 'mean' or 'std' anywhere in the name
+because Assignment's steps was unclear whether we should filter out only
+measurements ending with 'mean()' or 'std()', or if we should also select
+observations whose names contained 'mean' or 'std' in places other than the
+end of the name string.
+
+For the sake of completeness, we have decided to use all columns containing
+'mean' or 'std' anywhere in the column name.
+
 # Description of Files
 
 This repository contains an
