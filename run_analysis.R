@@ -118,3 +118,25 @@ read.activity.labels <- function()
 	activities <- mutate(activities, activity = tolower(activity))
 	activities
 }
+
+##
+# read.data.training - reads X and Y training data and merges them
+##
+read.data.training <- function()
+{
+	basedir <- paste(destination.directory, destination.source,
+			  "train/", sep = "/")
+	x_filename <- paste(basedir, "X_train.txt", sep = "/")
+	y_filename <- paste(basedir, "y_train.txt", sep = "/")
+
+	# Because of an issue with data.table (at least up until 1.9.5) where
+	# it crashes with a buffer overflow due to any leading spaces before
+	# the first actual data, we must use read.table() here. Of course we
+	# could preprocess the file with a foreign script, but that's just
+	# extra (non-R) work.
+	x <- data.table(read.table(x_filename, stringsAsFactors = FALSE))
+	y <- fread(y_filename, header = FALSE, stringsAsFactors = FALSE)
+
+	training <- data.table(y, x, stringsAsFactors = FALSE)
+	training
+}
