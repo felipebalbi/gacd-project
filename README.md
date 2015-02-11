@@ -6,18 +6,21 @@
 
 # Description of Files
 
-This repository contains an R script which will download and clean source data
-and also generate a *Tidy Dataset* for further consumption later on. Together
-with it, we're also providing a README.md file (this exact file which you're
-reading now) describing the project as a whole, and a Codebook.md file which
-describes the variables within our *Tidy Dataset*.
+This repository contains an
+[R](http://en.wikipedia.org/wiki/R_%28programming_language%29) script which
+will download and clean source data and also generate a *Tidy Dataset* for
+further consumption later on. Together with it, we're also providing a
+README.md file (this exact file which you're reading now) describing the
+project as a whole, and a Codebook.md file which describes the variables within
+our *Tidy Dataset*.
 
 There are a total of 4 (four) files within this repository, which we describe
 below:
 
 * README.md: This very file, describing the project as a whole;
 * run\_analysis.R: An R script containing code to download, extract, clean,
-  merge, select and generate a *Tidy Dataset* in CSV (Comma Separated Value)
+  merge, select and generate a *Tidy Dataset* in [Comma Separated Value
+(CSV)](http://en.wikipedia.org/wiki/Comma-separated_values) file located at
   file;
 * Codebook.md: Serving as *metadata* for our *Tidy Dataset*, Codebook.md
   describes all variables contained within our dataset so it becomes easier for
