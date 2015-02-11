@@ -145,8 +145,9 @@ read.data.training <- function()
 				   comment.char = "",
 				   colClasses = "numeric",
 				   nrows = 7352))
-	y <- fread(y_filename, header = FALSE, stringsAsFactors = FALSE)
+	activity <- fread(y_filename, header = FALSE, stringsAsFactors = FALSE)
+	setnames(activity, "activity")
 
-	training <- data.table(y, x)
+	training <- data.table(activity, x)
 	training
 }
