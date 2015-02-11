@@ -171,7 +171,9 @@ and you have a new *dataset\_tidy.csv* file recreated.
 
 # Output Tidy Dataset description
 
-The resulting *Tidy Dataset* contains a total of 181 lines (1 header line
+The resulting *Tidy Dataset*, a [Comma Separated Value
+(CSV)](http://en.wikipedia.org/wiki/Comma-separated_values) file located at
+data/uci\_har\_dataset\_tidy.csv, contains a total of 181 lines (1 header line
 followed by 6 rows of observations for each of the 30 subjects).
 
 A more complete description is available from our Codebook.md metadata file,
