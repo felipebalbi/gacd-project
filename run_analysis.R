@@ -120,7 +120,8 @@ read.activity.labels <- function()
 }
 
 ##
-# read.data.training - reads X and Y training data and merges them
+# read.data.training - reads X, Y, subject and activity training data and
+# merges them so we're left with a single data.table
 ##
 read.data.training <- function()
 {
