@@ -12,7 +12,6 @@ with it, we're also providing a README.md file (this exact file which you're
 reading now) describing the project as a whole, and a Codebook.md file which
 describes the variables within our *Tidy Dataset*.
 
-
 There are a total of 4 (four) files within this repository, which we describe
 below:
 
