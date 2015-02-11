@@ -134,7 +134,13 @@ read.data.training <- function()
 	# the first actual data, we must use read.table() here. Of course we
 	# could preprocess the file with a foreign script, but that's just
 	# extra (non-R) work.
-	x <- data.table(read.table(x_filename, stringsAsFactors = FALSE))
+	#
+	# In order to try and improve performance of read.table, we're setting
+	# comment.char = "" to disable comments altogether, and also passing
+	# colClasses appropriately (they're all numeric values)
+	x <- data.table(read.table(x_filename, stringsAsFactors = FALSE,
+				   comment.char = "",
+				   colClasses = rep("numeric", 561)))
 	y <- fread(y_filename, header = FALSE, stringsAsFactors = FALSE)
 
 	training <- data.table(y, x)
