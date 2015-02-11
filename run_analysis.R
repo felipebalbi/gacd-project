@@ -138,9 +138,13 @@ read.data.training <- function()
 	# In order to try and improve performance of read.table, we're setting
 	# comment.char = "" to disable comments altogether, and also passing
 	# colClasses appropriately (they're all numeric values)
+	#
+	# We are also passing nrows argument with the exact number of rows that
+	# will be read into R. This is easily calculated with UNIX's wc utility
 	x <- data.table(read.table(x_filename, stringsAsFactors = FALSE,
 				   comment.char = "",
-				   colClasses = "numeric"))
+				   colClasses = "numeric",
+				   nrows = 7352))
 	y <- fread(y_filename, header = FALSE, stringsAsFactors = FALSE)
 
 	training <- data.table(y, x)
