@@ -120,16 +120,24 @@ read.activity.labels <- function()
 }
 
 ##
-# read.data.training - reads X, Y, subject and activity training data and
-# merges them so we're left with a single data.table
+# read.data - reads X, Y, subject and activity data and merges them so we're
+# left with a single data.table
+#
+# @type: type of data to read. Valid values are 'train' or 'test'
 ##
-read.data.training <- function()
+read.data <- function(type = "train")
 {
 	basedir <- paste(destination.directory, destination.source,
-			  "train/", sep = "/")
-	x_filename <- paste(basedir, "X_train.txt", sep = "/")
-	y_filename <- paste(basedir, "y_train.txt", sep = "/")
-	subject_filename <- paste(basedir, "subject_train.txt", sep = "/")
+			  type, sep = "/")
+
+	x_filename <- paste("X_", type, ".txt", sep = "")
+	x_filename <- paste(basedir, x_filename, sep = "/")
+
+	y_filename <- paste("y_", type, ".txt", sep = "")
+	y_filename <- paste(basedir, y_filename, sep = "/")
+
+	subject_filename <- paste("subject_", type, ".txt", sep = "")
+	subject_filename <- paste(basedir, subject_filename, sep = "/")
 
 	# Because of an issue with data.table (at least up until 1.9.5) where
 	# it crashes with a buffer overflow due to any leading spaces before
@@ -153,6 +161,15 @@ read.data.training <- function()
 	subject <- fread(subject_filename, header = FALSE, stringsAsFactors = FALSE)
 	setnames(subject, "subject")
 
-	training <- data.table(subject, activity, x)
-	training
+	data <- data.table(subject, activity, x)
+	data
+}
+
+##
+# read.data.training - reads X, Y, subject and activity training data and
+# merges them so we're left with a single data.table
+##
+read.data.training <- function()
+{
+	read.data("train")
 }
