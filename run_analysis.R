@@ -229,18 +229,16 @@ run.analysis <- function()
 	#
 	# first we grab first two names from internal.dt and concatenate to the
 	# 'feature' column from 'internal.dt' and pass all that to setnames().
-	setnames(internal.dt, c("subject", "activity", features$feature))
+	setnames(internal.dt, c("id", "activity", features$feature))
 
 	# Replace activity IDs with actual strings
 	internal.dt$activity <- activity.labels[internal.dt$activity,]$activity
 
 	# Select only mean and std columns, together with subject and activity
-	tmp.dt <- select(internal.dt, matches("(mean|std)"))
+	tmp.dt <- select(internal.dt, matches("(^id$|activity|mean|std)"))
 
-	cat("Processing...\tAggregating data\n")
-	result.dt <- aggregate(tmp.dt, by = list(id = internal.dt$subject,
-						 activity = internal.dt$activity),
-			       FUN = "mean")
+	cat("Processing...\tSummarising data\n")
+	result.dt <- tmp.dt %>% group_by(id, activity) %>% summarise_each(funs(mean))
 
 	cat("Processing...\tSorting data\n")
 	result.dt <- arrange(result.dt, id)
