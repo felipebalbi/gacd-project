@@ -137,6 +137,6 @@ read.data.training <- function()
 	x <- data.table(read.table(x_filename, stringsAsFactors = FALSE))
 	y <- fread(y_filename, header = FALSE, stringsAsFactors = FALSE)
 
-	training <- data.table(y, x, stringsAsFactors = FALSE)
+	training <- data.table(y, x)
 	training
 }
