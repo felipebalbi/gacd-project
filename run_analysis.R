@@ -6,8 +6,6 @@
 ## Author: Felipe Balbi <balbif@gmail.com>
 ##
 
-## Quite a few functions are defined here
-
 ##################################################################
 ##			LIBRARY DEPENDENCY			##
 ##################################################################
