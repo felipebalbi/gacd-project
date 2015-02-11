@@ -140,7 +140,7 @@ read.data.training <- function()
 	# colClasses appropriately (they're all numeric values)
 	x <- data.table(read.table(x_filename, stringsAsFactors = FALSE,
 				   comment.char = "",
-				   colClasses = rep("numeric", 561)))
+				   colClasses = "numeric"))
 	y <- fread(y_filename, header = FALSE, stringsAsFactors = FALSE)
 
 	training <- data.table(y, x)
