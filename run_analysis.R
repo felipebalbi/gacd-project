@@ -38,6 +38,8 @@ destination.source = "uci_har_dataset"
 ##
 download.extract <- function()
 {
+	cat("Processing...\tDownloading dataset\n")
+
 	filename <- paste(destination.directory, destination.file, sep = "/")
 
 	if (file.exists(filename))
@@ -85,11 +87,13 @@ download.extract <- function()
 ##
 read.features <- function()
 {
+	cat("Processing...\tReading features\n")
 	filename <- paste(destination.directory, destination.source,
 			  "features.txt", sep = "/")
 	features <- fread(filename, sep = " ", header = FALSE)
 	setnames(features, c("id", "feature"))
 
+	cat("Processing...\tMutating feature names\n")
 	features <- mutate(features, feature = tolower(feature))
 	features <- mutate(features, feature = sub("^(t|f)", "\\1\\.", feature))
 	features <- mutate(features, feature = gsub("\\-|\\,", ".", feature))
@@ -101,6 +105,7 @@ read.features <- function()
 	features <- mutate(features, feature = gsub("\\.\\.", ".", feature))
 	features <- mutate(features, feature = gsub("\\.$", "", feature))
 
+	cat("Processing...\tDone with features\n")
 	features
 }
 
@@ -112,11 +117,14 @@ read.features <- function()
 ##
 read.activity.labels <- function()
 {
+	cat("Processing...\tReading activity labels\n")
 	filename <- paste(destination.directory, destination.source,
 		       "activity_labels.txt", sep = "/")
 	activities <- fread(filename, sep = " ")
 	setnames(activities, c("id", "activity"))
+	cat("Processing...\tMutating activity labels\n")
 	activities <- mutate(activities, activity = tolower(activity))
+	cat("Processing...\tDone with activity labels\n")
 	activities
 }
 
@@ -172,7 +180,11 @@ read.data <- function(type = "train")
 ##
 read.data.training <- function()
 {
-	read.data("train")
+	cat("Processing...\tReading training data\n")
+	data <- read.data("train")
+	cat("Processing...\tDone with training data\n")
+
+	data
 }
 
 ##
@@ -181,5 +193,9 @@ read.data.training <- function()
 ##
 read.data.test <- function()
 {
-	read.data("test")
+	cat("Processing...\tReading test data\n")
+	data <- read.data("test")
+	cat("Processing...\tDone with test data\n")
+
+	data
 }
