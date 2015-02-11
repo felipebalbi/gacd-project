@@ -192,7 +192,7 @@ Processing done
 Once you're back that the *>* prompt, it means the script has finished running
 and you have a new *dataset\_tidy.csv* file recreated.
 
-# Output Tidy Dataset description
+## Output Tidy Dataset description
 
 The resulting [Tidy
 Dataset](https://github.com/felipebalbi/gacd-project/blob/wip/data/uci_har_dataset_tidy.csv),
@@ -222,7 +222,7 @@ activity for each subject). A quick summary of the contents follows:
   measurements taken with Accelerometer and Gyroscope in all three directions
   (X, Y, and Z).
 
-# Codebook.md
+## Codebook.md
 
 The metadata for our [Tidy
 Dataset](https://github.com/felipebalbi/gacd-project/blob/wip/data/uci_har_dataset_tidy.csv)
