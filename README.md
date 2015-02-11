@@ -195,6 +195,12 @@ activity for each subject). A quick summary of the contents follows:
   measurements taken with Accelerometer and Gyroscope in all three directions
   (X, Y, and Z).
 
+# Codebook.md
+
+The metadata for our *Tidy Dataset* is located in Codebook.md. That file
+describes all variables available in our generated output data file and what
+type of value to expected for each column of the table.
+
 # R Package dependencies
 
 *run\_analysis.R* depends on *dplyr* and *data.table*. We use *data.table*
