@@ -101,7 +101,9 @@ read.features <- function()
 	features <- mutate(features, feature = gsub("\\(", ".", feature))
 	features <- mutate(features, feature = gsub("\\)", "", feature))
 	features <- mutate(features, feature = gsub("bodybody", "body", feature))
-	features <- mutate(features, feature = gsub("(body|gravity|gyro|mag|acc|jerk|energy|bands)", "\\1\\.", feature))
+	features <- mutate(features, feature =
+			   gsub("(body|gravity|gyro|mag|acc|jerk|energy|bands)",
+				"\\1\\.", feature))
 	features <- mutate(features, feature = gsub("\\.\\.", ".", feature))
 	features <- mutate(features, feature = gsub("\\.$", "", feature))
 
