@@ -101,3 +101,19 @@ read.features <- function()
 
 	features
 }
+
+##
+# read.activity.labels - read activity_labels.txt into a proper data frame
+#
+# This function reads activity_labels.txt and returns a properly formatted
+# data.frame with activity labels themselves converted into lowercase.
+##
+read.activity.labels <- function()
+{
+	filename <- paste(destination.directory, destination.source,
+		       "activity_labels.txt", sep = "/")
+	activities <- read.table(filename, sep = " ",
+				 col.names = c("id", "activity"))
+	activities <- mutate(activities, activity = tolower(activity))
+	activities
+}
