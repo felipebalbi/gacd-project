@@ -169,7 +169,7 @@ Processing done
 Once you're back that the *>* prompt, it means the script has finished running
 and you have a new *dataset\_tidy.csv* file recreated.
 
-## Output Tidy Dataset description
+# Output Tidy Dataset description
 
 The resulting *Tidy Dataset* contains a total of 181 lines (1 header line
 followed by 6 rows of observations for each of the 30 subjects).
@@ -195,7 +195,7 @@ activity for each subject). A quick summary of the contents follows:
   measurements taken with Accelerometer and Gyroscope in all three directions
   (X, Y, and Z).
 
-## R Package dependencies
+# R Package dependencies
 
 *run\_analysis.R* depends on *dplyr* and *data.table*. We use *data.table*
 instead of *data.frame* in most situations because of its fast operations on
@@ -211,7 +211,7 @@ able to run. Make sure they are installed with the following command:
 > install.packages(c("dplyr", "data.table"))
 ```
 
-## Running Time
+# Running Time
 
 We can use *system.time()* for a rough estimation of the execution time for our
 *run\_analysis.R* script. The system used was a Lenovo Desktop with a quad-core
