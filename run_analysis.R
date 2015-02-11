@@ -173,3 +173,12 @@ read.data.training <- function()
 {
 	read.data("train")
 }
+
+##
+# read.data.test - reads X, Y, subject and activity test data and merges them
+# so we're left with a single data.table
+##
+read.data.test <- function()
+{
+	read.data("test")
+}
