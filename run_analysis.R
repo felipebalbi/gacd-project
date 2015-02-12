@@ -222,7 +222,8 @@ run.analysis <- function()
 	setnames(internal.dt, c("id", "activity", features$feature))
 
 	# Replace activity IDs with actual strings
-	internal.dt$activity <- activity.labels[internal.dt$activity,]$activity
+	internal.dt <- internal.dt %>%
+			mutate(activity = activity.labels[activity, ]$activity)
 
 	# Select only mean and std columns, together with subject and activity
 	tmp.dt <- select(internal.dt, id, activity, contains("mean"), contains("std"))
