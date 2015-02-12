@@ -261,7 +261,7 @@ if (!("data.table" %in% installed.packages())) {
 
 	reply <- readline("Do you want me to install package 'data.table'? ")
 	if (grepl("^[Yy](es)?", reply))
-		packages <- c(packages, 'dplyr')
+		packages <- c(packages, 'data.table')
 }
 
 # conditionally install packages
