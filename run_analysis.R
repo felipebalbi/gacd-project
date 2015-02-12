@@ -225,7 +225,7 @@ run.analysis <- function()
 	internal.dt$activity <- activity.labels[internal.dt$activity,]$activity
 
 	# Select only mean and std columns, together with subject and activity
-	tmp.dt <- select(internal.dt, matches("(^id$|activity|mean|std)"))
+	tmp.dt <- select(internal.dt, id, activity, contains("mean"), contains("std"))
 
 	cat("Processing...\tSummarising data\n")
 	result.dt <- tmp.dt %>% group_by(id, activity) %>% summarise_each(funs(mean))
