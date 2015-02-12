@@ -226,10 +226,13 @@ run.analysis <- function()
 			mutate(activity = activity.labels[activity, ]$activity)
 
 	# Select only mean and std columns, together with subject and activity
-	tmp.dt <- select(internal.dt, id, activity, contains("mean"), contains("std"))
+	tmp.dt <- select(internal.dt, id, activity,
+			 contains("mean"), contains("std"))
 
 	cat("Processing...\tSummarising data\n")
-	result.dt <- tmp.dt %>% group_by(id, activity) %>% summarise_each(funs(mean))
+	result.dt <- tmp.dt %>%
+			group_by(id, activity) %>%
+			summarise_each(funs(mean))
 
 	cat("Processing...\tSorting data\n")
 	result.dt <- arrange(result.dt, id)
