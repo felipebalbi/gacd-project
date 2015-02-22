@@ -143,7 +143,7 @@ input from our file, as can be seen below. We are also pasting a sample output
 so users know what to expect when running this script.
 
 ```Bash
-$ R --no-save --quiet --slave -f run_analysis.R
+$ Rscript run_analysis.R
 
 Attaching package: ‘dplyr’
 
@@ -181,16 +181,6 @@ Processing...   Sorting data
 Processing...   Writing tidy data
 Processing done
 ```
-
-Options passed to R interpreter are described below:
-
-* --no-save: tells R that we don't want to save the resulting workspace (mandatory)
-* --quiet: tells R to run quietly (optional)
-* --slave: tells R to run as silently as possible (optional)
-
-Without *--slave*, R will print out the entire *run\_analysis.R* script before
-starting it. That was deemed unnecessary so *--slave* was added to command line
-arguments.
 
 ## Output Tidy Dataset description
 
