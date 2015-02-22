@@ -231,9 +231,9 @@ a much more natural manner.
 
 If you don't have those two packages installed, *run\_analysis.R* will try to
 install them for you, but it will confirm with you first. If packages are
-needed but you tell the script you don't want it to install packages for you,
-execution will stop with an error message. At which point, we expect the user
-to install packages manuall using the command below and trying again.
+needed but you tell the script you don't want it to install them, execution
+will stop with an error message. At which point, we expect the user to install
+any missing packages manually using the command below and trying again.
 
 ```R
 > install.packages(c("dplyr", "data.table"))
