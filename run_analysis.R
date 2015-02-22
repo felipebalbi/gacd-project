@@ -254,18 +254,22 @@ packages.needed = FALSE
 if (!("dplyr" %in% installed.packages())) {
 	packages.needed <- TRUE
 
-	reply <- readline("Do you want me to install package 'dplyr'? ")
-	if (grepl("^[Yy](es)?", reply))
-		packages <- c(packages, 'dplyr')
+	if (interactive()) {
+		reply <- readline("Do you want me to install package 'dplyr'? ")
+		if (grepl("^[Yy](es)?", reply))
+			packages <- c(packages, 'dplyr')
+	}
 }
 
 # check if data.table needs to be installed
 if (!("data.table" %in% installed.packages())) {
 	packages.needed <- TRUE
 
-	reply <- readline("Do you want me to install package 'data.table'? ")
-	if (grepl("^[Yy](es)?", reply))
-		packages <- c(packages, 'data.table')
+	if (interactive()) {
+		reply <- readline("Do you want me to install package 'data.table'? ")
+		if (grepl("^[Yy](es)?", reply))
+			packages <- c(packages, 'data.table')
+	}
 }
 
 # conditionally install packages
